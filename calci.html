@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calci</title>
+    <link rel="stylesheet" href="calci.css">
+</head>
+
+<body>
+
+    <div class="calci">
+        <div class="result">0</div>
+        <div class="one">
+            <button onclick="validate('7')">7</button>
+            <button onclick="validate('8')">8</button>
+            <button onclick="validate('9')">9</button>
+            <button onclick="vanish()" class="red">AC</button>
+
+        </div>
+        <div class="two">
+            <button onclick="validate('4')">4</button>
+            <button onclick="validate('5')">5</button>
+            <button onclick="validate('6')">6</button>
+            <button onclick="validate('*')" class="orange">*</button>
+        </div>
+        <div class="three">
+            <button onclick="validate('1')">1</button>
+            <button onclick="validate('2')">2</button>
+            <button onclick="validate('3')">3</button>
+            <button onclick="validate('-')" class="orange">-</button>
+        </div>
+        <div class="four">
+            <button onclick="validate('0')" class="orange">0</button>
+            <button onclick="validate('00')" class="orange">00</button>
+
+            <button onclick="validate('%')" class="orange">%</button>
+            <button onclick="validate('+')" class="orange">+</button>
+        </div>
+        <div class="five">
+            <button onclick="vanish()" class="red">C</button>
+            <button onclick="validate('/')" class="orange">/</button>
+            <button onclick="validate('.')" class="orange">.</button>
+            <button onclick="calResult()" class="green">=</button>
+
+        </div>
+
+        <script>
+            let result = document.querySelector(".result");
+
+            function validate(v) {
+                result.textContent = result.textContent === "0" ? v : result.textContent + v
+            }
+
+            function vanish() {
+                result.textContent = 0
+            }
+
+            function calResult() {
+                result.textContent = eval(result.textContent)
+            }
+        </script>
+</body>
+
+</html>
